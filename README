@@ -1,0 +1,27 @@
+Nagios svstat monitoring plugin
+
+INSTALLATION
+
+1. deploy check_svstat.pl to your nagios plugins dir (ex. /usr/lib64/nagios/plugins/)
+
+2. add check_svstat_* command on your nrpe.cfg
+
+  command[check_svstat_foo]=/usr/lib64/nagios/plugins/check_svstat.pl foo
+
+3. add service on your nagios config
+
+  define service{
+      use                  local-service
+      host_name            s1
+      service_description  svstat_foo
+      check_command        check_nrpe!check_svstat_foo
+  }
+
+NOTICE
+
+check_svstat executes `sudo svstat`,
+thus you should allow nagios user to sudo without tty and password on /etc/sudoers.
+
+* if "Defaults requiretty" setting enabled, please disable that.
+* add nagios user sudo setting. for example,
+   nagios      ALL = NOPASSWD:/usr/bin/svstat
