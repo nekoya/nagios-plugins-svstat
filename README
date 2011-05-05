@@ -6,7 +6,7 @@ check_svstat.pl observes result of daemontool's svstat command.
 
 if uptime of target service less than 2 seconds, check_svstat.pl throws critical alert.
 
-you can controll that notification by using 'max_check_attempts' setting for nagios service.
+you can control that notification by using 'max_check_attempts' setting for nagios service.
 
 
 INSTALLATION
