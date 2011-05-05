@@ -1,5 +1,14 @@
 Nagios svstat monitoring plugin
 
+DESCRIPTION
+
+check_svstat.pl observes result of daemontool's svstat command.
+
+if uptime of target service less than 2 seconds, check_svstat.pl throws critical alert.
+
+you can controll that notification by using 'max_check_attempts' setting for nagios service.
+
+
 INSTALLATION
 
 1. deploy check_svstat.pl to your nagios plugins dir (ex. /usr/lib64/nagios/plugins/)
@@ -16,6 +25,7 @@ INSTALLATION
       service_description  svstat_foo
       check_command        check_nrpe!check_svstat_foo
   }
+
 
 NOTICE
 
